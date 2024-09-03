@@ -5,7 +5,7 @@ const baseURL = 'http://localhost:3000/buses';
 // Agregar o actualizar un bus
 const addOrUpdateBus = async (plate, arrivalTime) => {
     try {
-        const response = await axios.post(baseURL, { plate, arrivalTime });
+        const response = await axios.post(baseURL, { placa: plate, tiempo: arrivalTime });
         console.log(response.data);
     } catch (error) {
         console.error('Error:', error.response ? error.response.data : error.message);

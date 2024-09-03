@@ -1,14 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 
+
+app.use(express.static(path.join(__dirname, '../public'))); 
+
 let buses = {}; // { placa: { tiempo: string, ediciones: number } }
 
 // Registrar o actualizar un bus
-app.post('/buses', (req, res) => {
+app.post('/buses Transmi', (req, res) => {
     const { placa, tiempo } = req.body;
 
     if (buses[placa]) {
@@ -21,26 +25,26 @@ app.post('/buses', (req, res) => {
     }
 });
 
-// Borrar un bus
+// Borrar un bus transmilenio
 app.delete('/buses/:placa', (req, res) => {
     const { placa } = req.params;
 
     if (buses[placa]) {
         delete buses[placa];
-        res.status(200).json({ message: 'Bus borrado' });
+        res.status(200).json({ message: 'Bus transmi borrado' });
     } else {
-        res.status(404).json({ message: 'Bus no encontrado' });
+        res.status(404).json({ message: 'Bus transmi no encontrado' });
     }
 });
 
-// Buscar un bus
-app.get('/buses/:placa', (req, res) => {
+// buscar un bus transmilenio
+app.get('/transmilenio/:placa', (req, res) => {
     const { placa } = req.params;
 
     if (buses[placa]) {
         res.status(200).json(buses[placa]);
     } else {
-        res.status(404).json({ message: 'Bus no encontrado' });
+        res.status(404).json({ message: 'Bus transmi no encontrado' });
     }
 });
 

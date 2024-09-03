@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Dependencias de paquetes
+package-lock.json
+yarn.lock
+
+# Archivos de entorno
+.env
+
+# Sistema de archivos
+.DS_Store
+Thumbs.db
+
+# Configuraciones específicas del IDE
+.vscode/
+.idea/
